@@ -5,7 +5,7 @@ export const isValidId = (req, res, next) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    next(createError(400, "Invalid ID"));
+    return next(createError(400, "Invalid ID")); // RETURN eksikti!
   }
   next();
 };
